@@ -5,10 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="scripts/script.js"></script>
-    <title>RockPaperScissors</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Condensed:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>The-gesture-battle</title>
 </head>
 <body>
-    
+
+
+    <div class="container">
+
+    <div class="lside">
+        <h1 class="welcome-header">Welcome to The-gesture-battle!</h1>
+        <ul class="p-selection">
+            <li data-sel="rock"><img src="images/rock.png" class="li-img" data-sel="rock" >Rock</li>
+            <li data-sel="paper"><img src="images/paper.png" class="li-img" data-sel="paper" >Paper</li>
+            <li data-sel="scissors"><img src="images/scissors.png" class="li-img-s" data-sel="scissors" >Scissors</li>
+        </ul>
+    </div>
+    <div class="arena">
+        <h1>AI</h1>
+        <img class="ai-img" src="images/rock.png">
+        <img class="player-img" src="images/rock_rev.png">
+        <h1>You</h1>
+
+    </div>
+</div>
+<script src="scripts/script.js"></script>
 </body>
+
 </html>

@@ -19,6 +19,25 @@ function getComputerChoice()
 
 function playRound(playerSelection, computerSelection)
 {
+    const player = document.querySelector('.player-img');
+    const ai = document.querySelector('.ai-img');
+    setTimeout(()=>
+    {
+        player.id = 'animatedElementDown';
+        ai.id = 'animatedElementUp';
+    },100
+    )
+    player.id = "";
+    ai.id = "";
+    player.addEventListener('animationend', function(){
+    player.src = `images/${playerSelection}_rev.png`;
+
+    });
+    ai.addEventListener('animationend', function(){
+        ai.src = `images/${computerSelection}.png`;
+        });
+    
+
     playerSelection = playerSelection.toLowerCase();
     if(computerSelection == playerSelection)
     {
@@ -36,51 +55,11 @@ function playRound(playerSelection, computerSelection)
     {
         return -1;
     }
-    
-   
-}
-
-function game()
-{
-    let computerScore = 0;
-    let playerScore = 0;
-    //Game loop
-    while(playerScore < 3 && computerScore < 3)
-    {
-        let playerSelection = prompt("Please enter your choice: rock, paper, or scissors").toLowerCase();
-        if(!checkValidation(playerSelection))
-        {
-            alert("Please enter a valid answer");
-            continue;
-        }
-        let computerSelection = getComputerChoice();
-
-        let res = playRound(playerSelection, computerSelection)
-        switch(res)
-        {
-            case 1:
-                playerScore++;
-                console.log(`You won this round! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`);
-                break;
-            case -1:
-                computerScore++;
-                console.log(`You Lost this round! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`);
-                break;
-            case 0:
-                console.log("It's a Draw");
-                break;
-        }
-    }
-    if(playerScore == 3)
-    {
-        console.log("You won the battle!");
-    }
-    else
-    {
-        console.log("Oh no! You lost the battle!");
-    }
 
 }
+
+
+
 function checkValidation(userPrompt)
 {
     userPrompt = userPrompt.toLowerCase();
@@ -98,4 +77,28 @@ function capitalize(word)
 {
     return word[0].toUpperCase() + word.slice(1, word.length);
 }
-game();
+
+
+const choices = document.querySelectorAll('.p-selection li');
+
+choices.forEach(function(item){
+    item.addEventListener('click', function(e)
+    {
+        const target = e.target;
+        const atrVal = target.getAttribute('data-sel');
+        const aiselection = getComputerChoice();
+        playRound(atrVal, aiselection);
+    })
+});
+
+
+
+
+
+
+
+
+
+
+
+
