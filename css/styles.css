@@ -20,7 +20,9 @@ html, body {
     display: flex;
     justify-content: space-between;
     height: 100%;
+    position: relative;
     flex:1;
+    overflow: hidden;
 }
 
 
@@ -89,6 +91,13 @@ html, body {
     width: 300px;
     height: 300px;
 }
+.arena h1{
+  font-size: 60px;
+  font-weight: 800;
+}
+.arena span{
+  margin-left: 80px;
+}
  #animatedElementDown {
   animation-name: downUpTwice;
   animation-duration: 2s;
@@ -140,4 +149,34 @@ html, body {
   }
 }
 
+.result{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  z-index: 1;
+  text-align: center;
+}
 
+.result h1{
+  font-size: 86px;
+  
+}
+.textAnim {
+  animation: scaleFadeOut 2s linear;
+}
+@keyframes scaleFadeOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
